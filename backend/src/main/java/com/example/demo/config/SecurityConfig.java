@@ -29,7 +29,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
 
-            // ✅ IMPORTANT: enable cors with config source
+            // ✅ CORS FIX
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
             .sessionManagement(session ->
@@ -50,18 +50,18 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // 🔥 THIS IS THE MAIN FIX
+    // 🔥 FINAL WORKING CORS
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of(
+        // ✅ allow ALL vercel deployments dynamically
+        config.setAllowedOriginPatterns(List.of(
             "http://localhost:3000",
-            "https://taskflow-app-jndy.vercel.app" // ✅ your frontend URL
+            "https://*.vercel.app"
         ));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
