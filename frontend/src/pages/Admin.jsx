@@ -14,7 +14,7 @@ function Admin() {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [fetchUsers]);
 
   const makeAdmin = async (id) => {
     await axios.put(`/admin/users/${id}/role?role=ADMIN`, {}, {
