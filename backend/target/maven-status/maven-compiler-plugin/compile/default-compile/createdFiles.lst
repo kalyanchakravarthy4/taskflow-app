@@ -4,7 +4,6 @@ com\example\demo\config\JwtFilter.class
 com\example\demo\service\TaskService.class
 com\example\demo\dto\LoginRequest.class
 com\example\demo\repository\ProjectRepository.class
-com\example\demo\config\CorsConfig.class
 com\example\demo\repository\UserRepository.class
 com\example\demo\entity\Task.class
 com\example\demo\config\PasswordConfig.class
@@ -17,7 +16,6 @@ com\example\demo\controller\AdminController.class
 com\example\demo\dto\TaskRequest.class
 com\example\demo\dto\ProjectDTO.class
 com\example\demo\service\ProjectService.class
-com\example\demo\config\CorsConfig$1.class
 com\example\demo\controller\TaskController.class
 com\example\demo\dto\TaskDTO.class
 com\example\demo\config\SecurityConfig.class
