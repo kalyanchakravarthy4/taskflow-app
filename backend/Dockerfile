@@ -1,13 +1,16 @@
-# Build stage
+# ===== BUILD STAGE =====
 FROM maven:3.9.9-eclipse-temurin-17 AS build
+
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Run stage
+# ===== RUN STAGE =====
 FROM eclipse-temurin:17-jdk
+
 WORKDIR /app
+
 COPY --from=build /app/target/*.jar app.jar
 
-EXPOSE 8080
+# 🔥 Render uses dynamic port (no need to hardcode)
 CMD ["java", "-jar", "app.jar"]
