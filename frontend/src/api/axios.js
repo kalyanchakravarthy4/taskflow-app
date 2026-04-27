@@ -1,10 +1,10 @@
 import axios from "axios";
 
-
-export default axios.create({
+const instance = axios.create({
   baseURL: "https://taskflow-app-offt.onrender.com/api"
 });
 
+// attach token automatically
 instance.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
