@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const instance = axios.create({
-  baseURL: "https://taskflow-app-0tt.onrender.com/api"
+
+export default axios.create({
+  baseURL: "https://taskflow-app-offt.onrender.com/api"
 });
 
 instance.interceptors.request.use((config) => {
